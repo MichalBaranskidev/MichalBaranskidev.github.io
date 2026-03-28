@@ -1,0 +1,20 @@
+name: Delete bad folder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove the cursed folder
+        run: |
+          rm -rf '`_posts/`_posts'
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "chore: remove the broken folder" || exit 0
+          git push
