@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Git Disaster Recovery – case study"
 date: 2026-03-28
 categories: [Git, DevOps]
