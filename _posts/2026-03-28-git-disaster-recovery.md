@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: default
 title: "Git Disaster Recovery – case study"
 date: 2026-03-28
 categories: [Git, DevOps]
 tags: [git, disaster-recovery, reflog, tag, detached-head]
+---
 ---
 
 # Git Disaster Recovery – case study
