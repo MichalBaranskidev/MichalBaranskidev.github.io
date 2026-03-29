@@ -1,4 +1,4 @@
 title: Michał Barański
 description: IT professional transitioning into DevOps
 url: "https://michalbaranskidev.github.io"
-include: ["_posts"]
+theme: minima
