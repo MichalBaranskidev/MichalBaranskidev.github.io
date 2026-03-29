@@ -1,7 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    h1, h2, h3 {
+      color: #111;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 4px;
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
 <body>
-TEST LAYOUT OK
-{{ content }}
+
+  <h1>{{ site.title }}</h1>
+
+  {{ content }}
+
 </body>
 </html>
