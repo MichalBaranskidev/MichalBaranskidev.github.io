@@ -10,7 +10,6 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 # Git Disaster Recovery – case study
 
 ## SYTUACJA WYJŚCIOWA
-## SYTUACJA WYJŚCIOWA
 
 - Pracowałem 5 dni nad notatkami w folderze `08-Git/`
 - Pliki były commitowane i śledzone na branchu `main/recovery`
