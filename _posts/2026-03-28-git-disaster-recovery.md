@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Git Disaster Recovery – case study"
 date: 2026-03-28
 categories: [Git, DevOps]
@@ -7,6 +8,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 # Git Disaster Recovery – case study
 
+## SYTUACJA WYJŚCIOWA
 ## SYTUACJA WYJŚCIOWA
 
 - Pracowałem 5 dni nad notatkami w folderze `08-Git/`
