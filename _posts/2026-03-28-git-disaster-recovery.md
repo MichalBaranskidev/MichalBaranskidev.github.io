@@ -78,7 +78,7 @@ text
 
 git branch -a | while read b; do
 git ls-tree $b --name-only 2>/dev/null | grep "08-Git" && echo "MA: $b"
-done
+done 
 text
 
 
