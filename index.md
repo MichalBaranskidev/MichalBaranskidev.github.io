@@ -1,4 +1,7 @@
-# Michał Barański
+---
+layout: default
+title: Michał Barański
+---
 
 IT professional with 5 years of experience in networking and security, transitioning into DevOps.
 
