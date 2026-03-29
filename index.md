@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Michał Barański
+title: Home
 ---
 
-IT professional with 5 years of experience in networking and security, transitioning into DevOps.
+## 📝 Najnowsze wpisy
 
-## 📝 Notatki
-
-- [Git Disaster Recovery – case study](/2026/03/28/git-disaster-recovery/)
-
-## 🚀 Projekty (coming soon)
-
-- Python Automation
-- Docker Multi-stage Builds
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <small> — {{ post.date | date: "%Y-%m-%d" }}</small>
+    </li>
+  {% endfor %}
+</ul>
