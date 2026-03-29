@@ -7,7 +7,7 @@ IT professional with 5 years of experience in networking and security, transitio
 
 ## 📝 Notatki
 
-- [Git Disaster Recovery – case study](/2026/03/28/git-disaster-recovery)
+- [Git Disaster Recovery – case study](/2026/03/28/git-disaster-recovery/)
 
 ## 🚀 Projekty (coming soon)
 
