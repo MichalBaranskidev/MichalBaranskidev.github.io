@@ -8,16 +8,16 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ## 📋 SPIS TREŚCI
 
-1. [Sytuacja wyjściowa](#sytuacja-wyjsciowa)
-2. [Co poszło nie tak](#co-poszlo-nie-tak)
-3. [Dlaczego Git tak działa](#dlaczego-git-tak-dziala)
-4. [Proces odzyskiwania](#proces-odzyskiwania)
-5. [Kluczowe komendy](#kluczowe-komendy)
-6. [Zasady Gita](#zasady-gita)
-7. [Scenariusze](#scenariusze)
-8. [Lekcje na przyszłość](#lekcje-na-przyszlosc)
-9. [Wnioski końcowe](#wnioski-koncowe)
-10. [Podsumowanie – czego się nauczyłem](#podsumowanie--czego-sie-nauczylem)
+**1.** [Sytuacja wyjściowa](#sytuacja-wyjsciowa)  
+**2.** [Co poszło nie tak](#co-poszlo-nie-tak)  
+**3.** [Dlaczego Git tak działa](#dlaczego-git-tak-dziala)  
+**4.** [Proces odzyskiwania](#proces-odzyskiwania)  
+**5.** [Kluczowe komendy](#kluczowe-komendy)  
+**6.** [Zasady Gita](#zasady-gita)  
+**7.** [Scenariusze](#scenariusze)  
+**8.** [Lekcje na przyszłość](#lekcje-na-przyszlosc)  
+**9.** [Wnioski końcowe](#wnioski-koncowe)  
+**10.** [Podsumowanie – czego się nauczyłem](#podsumowanie--czego-sie-nauczylem)
 
 ---
 
