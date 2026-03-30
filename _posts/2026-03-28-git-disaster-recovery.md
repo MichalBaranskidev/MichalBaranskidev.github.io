@@ -6,65 +6,7 @@ categories: [Git, DevOps]
 tags: [git, disaster-recovery, reflog, tag, detached-head]
 ---
 
-<style>
-  .note-box {
-    background: #f6f8fa;
-    border-left: 4px solid #0969da;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 6px;
-  }
-  .warning-box {
-    background: #fff8e7;
-    border-left: 4px solid #e6a700;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 6px;
-  }
-  .tip-box {
-    background: #e6ffec;
-    border-left: 4px solid #2da44e;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 6px;
-  }
-  pre {
-    background: #f6f8fa;
-    padding: 1rem;
-    border-radius: 6px;
-    overflow-x: auto;
-    border: 1px solid #d0d7de;
-  }
-  code {
-    background: #f6f8fa;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 1rem 0;
-  }
-  th, td {
-    border: 1px solid #d0d7de;
-    padding: 0.5rem;
-    text-align: left;
-  }
-  th {
-    background: #f6f8fa;
-  }
-  hr {
-    margin: 2rem 0;
-  }
-  h1, h2, h3 {
-    margin-top: 1.5rem;
-  }
-</style>
-
-# Git Disaster Recovery – case study
-
-## 📋 Spis treści
+## 📋 SPIS TREŚCI
 
 1. [Sytuacja wyjściowa](#sytuacja-wyjsciowa)
 2. [Co poszło nie tak](#co-poszlo-nie-tak)
@@ -74,9 +16,8 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 6. [Zasady Gita](#zasady-gita)
 7. [Scenariusze](#scenariusze)
 8. [Lekcje na przyszłość](#lekcje-na-przyszlosc)
-9. [Wnioski](#wnioski)
-10. [Mantry na dziś](#mantry-na-dzis)
-11. [Podsumowanie](#podsumowanie)
+9. [Wnioski końcowe](#wnioski-koncowe)
+10. [Podsumowanie – czego się nauczyłem](#podsumowanie--czego-sie-nauczylem)
 
 ---
 
@@ -194,8 +135,8 @@ git checkout detacze2 (mając pliki)	Branch bez plików	Git kasuje pliki z dysku
 Zanim przełączysz branch/commit:
 bash
 
-git status                    # musi być czysto!
-git tag zapas-$(date +%Y%m%d) # zrób znacznik
+git status                     # musi być czysto!
+git tag zapas-$(date +%Y%m%d)  # zrób znacznik
 
 Zanim wejdziesz na stary commit:
 bash
@@ -209,7 +150,7 @@ bash
 git ls-tree --name-only <hash> | grep "08-Git"
 git diff --name-only <hash>..HEAD
 
-<span id="wnioski">Wnioski</span>
+<span id="wnioski-koncowe">Wnioski końcowe</span>
 
     Git nie kasuje danych – one są w historii, trzeba wiedzieć gdzie szukać
 
@@ -221,9 +162,7 @@ git diff --name-only <hash>..HEAD
 
     Working directory to nie repo – to tylko migawka z commita
 
-<span id="mantry-na-dzis">Mantry na dziś</span>
-<div class="tip-box"> ✅ "Commit zanim przełączysz"<br> ✅ "Tag zanim skoczysz"<br> ✅ "Status zanim cokolwiek zrobisz" </div>
-<span id="podsumowanie">Podsumowanie – czego się nauczyłem</span>
+<span id="podsumowanie--czego-sie-nauczylem">Podsumowanie – czego się nauczyłem</span>
 Czego się nauczyłem	Jak sprawdzić / komenda
 Sprawdzać detached HEAD	git symbolic-ref HEAD
 Robić TAG przed skokiem	git tag backup-$(date)
