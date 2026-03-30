@@ -17,7 +17,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 **7.** [Scenariusze](#scenariusze)  
 **8.** [Lekcje na przyszłość](#lekcje-na-przyszlosc)  
 **9.** [Wnioski końcowe](#wnioski-koncowe)  
-**10.** [Podsumowanie – czego się nauczyłem](#podsumowanie--czego-sie-nauczylem)
+**10.** [Podsumowanie – czego się nauczyłem](#podsumowanie-czego-sie-nauczylem)
 
 ---
 
