@@ -6,7 +6,7 @@ categories: [Git, DevOps]
 tags: [git, disaster-recovery, reflog, tag, detached-head]
 ---
 
-## 📋 SPIS TREŚCI
+## 📋 Spis treści
 
 **1.** [Sytuacja wyjściowa](#sytuacja-wyjsciowa)  
 **2.** [Co poszło nie tak](#co-poszlo-nie-tak)  
@@ -21,7 +21,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## <span id="sytuacja-wyjsciowa">Sytuacja wyjściowa</span>
+## Sytuacja wyjściowa
 
 - Pracowałem 5 dni nad notatkami w folderze `08-Git/`
 - Pliki były commitowane i śledzone na branchu `main/recovery`
@@ -30,151 +30,158 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## <span id="co-poszlo-nie-tak">Co poszło nie tak</span>
+## Co poszło nie tak
 
 **Krok 1:** Byłem na `recovery` (tam były notatki)
 
-```bash
-git checkout -b detacze2 56230ff
+    git checkout -b detacze2 56230ff
 
-Krok 2: Commit 56230ff pochodził z epoki ZANIM powstał folder 08-Git
+**Krok 2:** Commit `56230ff` pochodził z epoki ZANIM powstał folder `08-Git`
 
-    W tym commitcie NIE BYŁO moich notatek
+- W tym commitcie NIE BYŁO moich notatek
+- Git przełączając mnie na ten commit usunął folder `08-Git` z dysku
+- Working directory = stan z commita = bez moich plików
 
-    Git przełączając mnie na ten commit usunął folder 08-Git z dysku
+**Krok 3:** Przełączałem się między branchami
 
-    Working directory = stan z commita = bez moich plików
+    git checkout detacze   # tu były notatki (commit 5d66893)
+    git checkout detacze2  # tu nie było notatek (commit 56230ff)
 
-Krok 3: Przełączałem się między branchami
-bash
+**Krok 4:** Przy każdym wejściu na `detacze2` git kasował folder `08-Git`
 
-git checkout detacze   # tu były notatki (commit 5d66893)
-git checkout detacze2  # tu nie było notatek (commit 56230ff)
+- Pliki fizycznie znikały z dysku
+- Ale w repo były bezpieczne na innych branchach
 
-Krok 4: Przy każdym wejściu na detacze2 git kasował folder 08-Git
+---
 
-    Pliki fizycznie znikały z dysku
+## Dlaczego Git tak działa
 
-    Ale w repo były bezpieczne na innych branchach
+- Commit bez plików + checkout = usunięcie z working directory
+- Nie zrobiłem tagu/backupu PRZED skokiem w przeszłość
+- Myślałem że "ratuję" commity, a wszedłem w alternatywną rzeczywistość
 
-<span id="dlaczego-git-tak-dziala">Dlaczego Git tak działa</span>
+---
 
-    Commit bez plików + checkout = usunięcie z working directory
+## Proces odzyskiwania
 
-    Nie zrobiłem tagu/backupu PRZED skokiem w przeszłość
+**Krok 1:** ZACHOWAJ SPOKÓJ
 
-    Myślałem że "ratuję" commity, a wszedłem w alternatywną rzeczywistość
+**Krok 2:** ZRÓB BACKUP CAŁEGO REPO
 
-<span id="proces-odzyskiwania">Proces odzyskiwania</span>
+    git bundle create backup.bundle --all
+    mv backup.bundle ~/Desktop/
 
-Krok 1: ZACHOWAJ SPOKÓJ
+**Krok 3:** SPRAWDŹ GDZIE JESTEŚ
 
-Krok 2: ZRÓB BACKUP CAŁEGO REPO
-bash
+    git status
+    git branch
+    git reflog --date=format:%Y-%m-%d_%H:%M:%S
 
-git bundle create backup.bundle --all
-mv backup.bundle ~/Desktop/
+**Krok 4:** ZNAJDŹ COMMITY Z TWOIMI PLIKAMI
 
-Krok 3: SPRAWDŹ GDZIE JESTEŚ
-bash
+    git branch -a | while read b; do
+      git ls-tree $b --name-only 2>/dev/null | grep "08-Git" && echo "MA: $b"
+    done
 
-git status
-git branch
-git reflog --date=format:%Y-%m-%d_%H:%M:%S
+**Krok 5:** PRZYWRÓĆ PLIKI Z INNEGO BRANCHA
 
-Krok 4: ZNAJDŹ COMMITY Z TWOIMI PLIKAMI
-bash
+    git checkout recovery
+    git checkout e1025e0 -- 08-Git/
 
-git branch -a | while read b; do
-  git ls-tree $b --name-only 2>/dev/null | grep "08-Git" && echo "MA: $b"
-done
+**Krok 6:** ZABEZPIECZ
 
-Krok 5: PRZYWRÓĆ PLIKI Z INNEGO BRANCHA
-bash
+    git tag stan-po-odzysku-$(date +%Y%m%d_%H%M)
 
-git checkout recovery
-git checkout e1025e0 -- 08-Git/
+**Krok 7:** DODAJ PLIKI Z POWROTEM DO REPO
 
-Krok 6: ZABEZPIECZ
-bash
+    git add 08-Git/
+    git commit -m "recovery: przywrócone notatki po katastrofie"
 
-git tag stan-po-odzysku-$(date +%Y%m%d_%H%M)
+---
 
-Krok 7: DODAJ PLIKI Z POWROTEM DO REPO
-bash
+## Kluczowe komendy
 
-git add 08-Git/
-git commit -m "recovery: przywrócone notatki po katastrofie"
+| Komenda | Zastosowanie |
+|---------|--------------|
+| `git bundle create backup.bundle --all` | Pełny backup repo |
+| `git reflog --date=format:%Y-%m-%d_%H:%M:%S` | Historia z datami |
+| `git fsck --lost-found` | Znajduje wiszące commity |
+| `git ls-tree <hash> --name-only` | Sprawdza pliki w commitcie |
+| `git checkout <hash> -- <file>` | Przywraca plik z commita |
+| `git tag nazwa` | Znacznik (niezmienny punkt) |
+| `git merge --no-ff` | Merge z widoczną historią |
 
-<span id="kluczowe-komendy">Kluczowe komendy</span>
-Komenda	Zastosowanie
-git bundle create backup.bundle --all	Pełny backup repo
-git reflog --date=format:%Y-%m-%d_%H:%M:%S	Historia z datami
-git fsck --lost-found	Znajduje wiszące commity
-git ls-tree <hash> --name-only	Sprawdza pliki w commitcie
-git checkout <hash> -- <file>	Przywraca plik z commita
-git tag nazwa	Znacznik (niezmienny punkt)
-git merge --no-ff	Merge z widoczną historią
-<span id="zasady-gita">Zasady Gita</span>
+---
 
-Zasada #1: Git podmienia working directory do stanu z commita przy każdym checkout
+## Zasady Gita
 
-Zasada #2: Commit bez pliku = git usunie ten plik z dysku przy przełączeniu
+**Zasada #1:** Git podmienia working directory do stanu z commita przy każdym checkout
 
-Zasada #3: Git nie ostrzega przy tworzeniu brancha z commita – ostrzega DOPIERO przy przełączaniu
+**Zasada #2:** Commit bez pliku = git usunie ten plik z dysku przy przełączeniu
 
-Zasada #4: Tagi są niezmienne (immutable), branche się zmieniają – tag = backup, branch = praca
-<span id="scenariusze">Scenariusze</span>
-Akcja	Jesteś na	Skutek
-git checkout 56230ff	Detached HEAD	Możesz stracić zmiany
-git checkout -b detacze2 56230ff	Nowy branch	Wchodzisz do innej rzeczywistości
-git checkout recovery	Branch	Wracasz do swoich plików
-git checkout detacze2 (mając pliki)	Branch bez plików	Git kasuje pliki z dysku
-<span id="lekcje-na-przyszlosc">Lekcje na przyszłość</span>
+**Zasada #3:** Git nie ostrzega przy tworzeniu brancha z commita – ostrzega DOPIERO przy przełączaniu
 
-Zanim przełączysz branch/commit:
-bash
+**Zasada #4:** Tagi są niezmienne (immutable), branche się zmieniają – tag = backup, branch = praca
 
-git status                     # musi być czysto!
-git tag zapas-$(date +%Y%m%d)  # zrób znacznik
+---
 
-Zanim wejdziesz na stary commit:
-bash
+## Scenariusze
 
-# nigdy nie wchodź bezpośrednio!
-git checkout -b nowy-branch stary-commit
+| Akcja | Jesteś na | Skutek |
+|-------|-----------|--------|
+| `git checkout 56230ff` | Detached HEAD | Możesz stracić zmiany |
+| `git checkout -b detacze2 56230ff` | Nowy branch | Wchodzisz do innej rzeczywistości |
+| `git checkout recovery` | Branch | Wracasz do swoich plików |
+| `git checkout detacze2` (mając pliki) | Branch bez plików | Git kasuje pliki z dysku |
 
-Jak sprawdzić co jest w commitcie zanim wejdziesz:
-bash
+---
 
-git ls-tree --name-only <hash> | grep "08-Git"
-git diff --name-only <hash>..HEAD
+## Lekcje na przyszłość
 
-<span id="wnioski-koncowe">Wnioski końcowe</span>
+**Zanim przełączysz branch/commit:**
 
-    Git nie kasuje danych – one są w historii, trzeba wiedzieć gdzie szukać
+    git status                     # musi być czysto!
+    git tag zapas-$(date +%Y%m%d)  # zrób znacznik
 
-    Reflog to pamięć – zawiera wszystko co robiłeś przez ostatnie miesiące
+**Zanim wejdziesz na stary commit:**
 
-    Tagi to twoi przyjaciele – rób je przed każdym ryzykownym ruchem
+    # nigdy nie wchodź bezpośrednio!
+    git checkout -b nowy-branch stary-commit
 
-    Branch z commita to nowa rzeczywistość – nie ten sam branch
+**Jak sprawdzić co jest w commitcie zanim wejdziesz:**
 
-    Working directory to nie repo – to tylko migawka z commita
+    git ls-tree --name-only <hash> | grep "08-Git"
+    git diff --name-only <hash>..HEAD
 
-<span id="podsumowanie--czego-sie-nauczylem">Podsumowanie – czego się nauczyłem</span>
-Czego się nauczyłem	Jak sprawdzić / komenda
-Sprawdzać detached HEAD	git symbolic-ref HEAD
-Robić TAG przed skokiem	git tag backup-$(date)
-Wchodzić na stary commit przez branch	git checkout -b nowy stary
-Nie ufać branchom jako backup	Bo się zmieniają
-Bundle trzymać POZA repo	mv bundle ~/Desktop/
-Sprawdzać co jest w commitcie	git ls-tree <hash>
-Szukać plików po całym repo	git branch -a | while read b
-Porównywać daty	stat vs git log
-VSC zmienia nazwy	Spacje → myślniki
-Flaga --no-ff	Zostawia ślad w historii
-Rozwiązywać konflikt	git checkout --theirs/--ours
-Przerwać merga	git merge --abort
+---
 
-Michał Barański – IT professional transitioning into DevOps
+## Wnioski końcowe
+
+1. Git nie kasuje danych – one są w historii, trzeba wiedzieć gdzie szukać
+2. Reflog to pamięć – zawiera wszystko co robiłeś przez ostatnie miesiące
+3. Tagi to twoi przyjaciele – rób je przed każdym ryzykownym ruchem
+4. Branch z commita to nowa rzeczywistość – nie ten sam branch
+5. Working directory to nie repo – to tylko migawka z commita
+
+---
+
+## Podsumowanie – czego się nauczyłem
+
+| Czego się nauczyłem | Jak sprawdzić / komenda |
+|---------------------|------------------------|
+| Sprawdzać detached HEAD | `git symbolic-ref HEAD` |
+| Robić TAG przed skokiem | `git tag backup-$(date)` |
+| Wchodzić na stary commit przez branch | `git checkout -b nowy stary` |
+| Nie ufać branchom jako backup | Bo się zmieniają |
+| Bundle trzymać POZA repo | `mv bundle ~/Desktop/` |
+| Sprawdzać co jest w commitcie | `git ls-tree <hash>` |
+| Szukać plików po całym repo | `git branch -a \| while read b` |
+| Porównywać daty | `stat` vs `git log` |
+| VSC zmienia nazwy | Spacje → myślniki |
+| Flaga --no-ff | Zostawia ślad w historii |
+| Rozwiązywać konflikt | `git checkout --theirs/--ours` |
+| Przerwać merga | `git merge --abort` |
+
+---
+
+**Michał Barański – IT professional transitioning into DevOps**
