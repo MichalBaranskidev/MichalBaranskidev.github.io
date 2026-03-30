@@ -8,20 +8,20 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ## 📋 Spis treści
 
-**1.** [Sytuacja wyjściowa](#sytuacja-wyjsciowa)  
-**2.** [Co poszło nie tak](#co-poszlo-nie-tak)  
-**3.** [Dlaczego Git tak działa](#dlaczego-git-tak-dziala)  
+**1.** [Sytuacja wyjsciowa](#sytuacja-wyjsciowa)  
+**2.** [Co poszlo nie tak](#co-poszlo-nie-tak)  
+**3.** [Dlaczego Git tak dziala](#dlaczego-git-tak-dziala)  
 **4.** [Proces odzyskiwania](#proces-odzyskiwania)  
 **5.** [Kluczowe komendy](#kluczowe-komendy)  
 **6.** [Zasady Gita](#zasady-gita)  
 **7.** [Scenariusze](#scenariusze)  
-**8.** [Lekcje na przyszłość](#lekcje-na-przyszlosc)  
-**9.** [Wnioski końcowe](#wnioski-koncowe)  
-**10.** [Podsumowanie – czego się nauczyłem](#podsumowanie---czego-sie-nauczylem)
+**8.** [Lekcje na przyszlosc](#lekcje-na-przyszlosc)  
+**9.** [Wnioski koncowe](#wnioski-koncowe)  
+**10.** [Podsumowanie – czego sie nauczylem](#podsumowanie---czego-sie-nauczylem)
 
 ---
 
-## Sytuacja wyjściowa
+## Sytuacja wyjsciowa
 
 - Pracowałem 5 dni nad notatkami w folderze `08-Git/`
 - Pliki były commitowane i śledzone na branchu `main/recovery`
@@ -30,7 +30,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## Co poszło nie tak
+## Co poszlo nie tak
 
 **Krok 1:** Byłem na `recovery` (tam były notatki)
 
@@ -54,7 +54,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## Dlaczego Git tak działa
+## Dlaczego Git tak dziala
 
 - Commit bez plików + checkout = usunięcie z working directory
 - Nie zrobiłem tagu/backupu PRZED skokiem w przeszłość
@@ -136,7 +136,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## Lekcje na przyszłość
+## Lekcje na przyszlosc
 
 **Zanim przełączysz branch/commit:**
 
@@ -155,7 +155,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## Wnioski końcowe
+## Wnioski koncowe
 
 1. Git nie kasuje danych – one są w historii, trzeba wiedzieć gdzie szukać
 2. Reflog to pamięć – zawiera wszystko co robiłeś przez ostatnie miesiące
@@ -165,7 +165,7 @@ tags: [git, disaster-recovery, reflog, tag, detached-head]
 
 ---
 
-## Podsumowanie – czego się nauczyłem
+## Podsumowanie – czego sie nauczylem
 
 | Czego się nauczyłem | Jak sprawdzić / komenda |
 |---------------------|------------------------|
