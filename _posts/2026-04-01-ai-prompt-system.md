@@ -1,4 +1,12 @@
-## 🧠 SYSTEM GENEROWANIA NOTATEK TECHNICZNYCH
+---
+layout: post
+title: "System promptów – notatki i nauka narzędzi"
+date: 2026-03-31
+categories: [AI, DevOps, Learning]
+tags: [prompts, system, learning, awk, bash]
+---
+
+# 🧠 SYSTEM GENEROWANIA NOTATEK TECHNICZNYCH
 
 Ten prompt służy do tworzenia kompletnych notatek technicznych po sesji nauki.
 
@@ -12,11 +20,24 @@ Notatki mają charakter:
 
 ## 📋 SPIS TREŚCI
 
-- Wypunktowanie WSZYSTKICH użytych komend  
-- Każda komenda powinna mieć opis działania  
-- Sekcje muszą być linkowane wewnętrznie (jeśli możliwe)
+### 🧠 System generowania notatek
+
+- [Wypunktowanie komend](#-wszystkie-komendy)
+- [Wyjaśnienie kodu](#-wyjasnienie-kodu)
+- [Porownywanie pojec](#-porownywanie-pojec)
+- [Najczestsze bledy](#-najczestsze-bledy)
+- [Kluczowe koncepcje](#-kluczowe-koncepcje)
+- [Checklist](#-checklista-umiejetnosci)
+
+### 🛠️ System nauki narzędzi
+
+- [Struktura nauki](#-struktura-nauki)
+- [Zasady](#-zasady)
+- [Cel](#-cel)
 
 ---
+
+# 🧠 SYSTEM GENEROWANIA NOTATEK TECHNICZNYCH
 
 ## 📌 WSZYSTKIE KOMENDY
 
@@ -49,7 +70,7 @@ Jeśli występuje kod:
 
 ---
 
-## 📊 PORÓWNYWANIE POJĘĆ
+## 📊 POROWNYWANIE POJEC
 
 Jeśli występują różnice:
 
@@ -58,7 +79,7 @@ Jeśli występują różnice:
 
 ---
 
-## 🔥 NAJCZĘSTSZE BŁĘDY
+## 🔥 NAJCZESTSZE BLEDY
 
 - lista błędów  
 - przyczyna  
@@ -75,9 +96,7 @@ Jeśli występują różnice:
 
 ---
 
-## ✅ CHECKLISTA UMIEJĘTNOŚCI
-
-Lista w formie:
+## ✅ CHECKLISTA UMIEJETNOSCI
 
 - [ ] umiem X  
 - [ ] rozumiem Y  
@@ -104,7 +123,9 @@ Stworzenie notatki, która:
 - nadaje się do powtórek  
 - pokazuje pełne zrozumienie tematu  
 
-## 🛠️ SYSTEM NAUKI NARZĘDZI (Linux / Bash / DevOps)
+---
+
+# 🛠️ SYSTEM NAUKI NARZEDZI
 
 Ten prompt służy do głębokiego uczenia się narzędzi poprzez:
 
