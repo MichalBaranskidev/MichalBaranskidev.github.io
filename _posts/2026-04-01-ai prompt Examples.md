@@ -1,5 +1,3 @@
-markdown
-
 ---
 layout: post
 title: "awk – praktyczne ćwiczenia"
