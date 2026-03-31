@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-# Witaj, nazywam się M.B.
+# Witaj,
 
 Jestem studentem kierunku informatycznego oraz osobą rozwijającą się w obszarze DevOps i systemów IT.
 
