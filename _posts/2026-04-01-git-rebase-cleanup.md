@@ -112,8 +112,12 @@ Git otworzy edytor dla KAŻDEGO commita. Dla każdego:
 | `style` | Formatowanie, CSS | `style: format markdown files` |
 | `chore` | Narzędzia, konfiguracja | `chore: update Jekyll version` |
 | `refactor` | Zmiana struktury kodu | `refactor: simplify layout logic` |
-Krok 7: Sprawdź efekt
-bash
+
+---
+
+## Krok 7: Sprawdź efekt
+
+```bash
 
 git log --oneline -10
 
