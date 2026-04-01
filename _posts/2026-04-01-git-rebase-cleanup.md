@@ -115,8 +115,6 @@ Git otworzy edytor dla KAŻDEGO commita. Dla każdego:
 
 ---
 
-arkdown
-
 ## Krok 7: Sprawdź efekt
 
 ```bash
