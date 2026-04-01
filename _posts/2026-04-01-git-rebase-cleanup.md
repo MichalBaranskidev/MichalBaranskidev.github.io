@@ -219,18 +219,3 @@ text
 
 
 ---
-
-## 🚀 Co teraz?
-
-### 1. Skopiuj powyższy plik
-### 2. Wklej do `_posts/2026-04-01-git-rebase-cleanup.md` (nadpisz)
-### 3. Zapisz
-### 4. Dodaj, commit, push:
-
-```bash
-git add _posts/2026-04-01-git-rebase-cleanup.md
-git commit -m "feat: add Git rebase tutorial - how to clean commit history"
-git push origin main
-
-5. Poczekaj 1-2 minuty
-6. Odśwież stronę
