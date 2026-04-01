@@ -88,7 +88,7 @@ Git otworzy edytor dla KAŻDEGO commita. Dla każdego:
 
     Usuń starą nazwę – w Vimie użyj cc (usuwa linię i włącza tryb edycji)
 
-    Wpisz nową nazwę – zgodnie z konwencją:
+    Wpisz nową nazwę – zgodnie z konwencją
 
     Zapisz i wyjdź – :wq
 
@@ -220,26 +220,17 @@ text
 
 ---
 
-## 🚀 Jak dodać notatkę na stronę?
+## 🚀 Co teraz?
+
+### 1. Skopiuj powyższy plik
+### 2. Wklej do `_posts/2026-04-01-git-rebase-cleanup.md` (nadpisz)
+### 3. Zapisz
+### 4. Dodaj, commit, push:
 
 ```bash
-# 1. Zapisz plik
-# _posts/2026-04-01-git-rebase-cleanup.md
-
-# 2. Dodaj do gita
 git add _posts/2026-04-01-git-rebase-cleanup.md
-
-# 3. Zrób commita (profesjonalnie!)
 git commit -m "feat: add Git rebase tutorial - how to clean commit history"
-
-# 4. Wypchnij
 git push origin main
 
-🎭 Efekt końcowy:
-Co było	Co jest
-kurwa w historii	✅ Czysta historia
-Wstyd przed rekruterem	✅ Profesjonalne portfolio
-Brak notatki	✅ Wartościowy tutorial
-Foldery backup-*	✅ Usunięte
-
-Gotowe! Teraz Twoja strona ma wartościową notatkę, a historia commitów jest czysta
+5. Poczekaj 1-2 minuty
+6. Odśwież stronę
