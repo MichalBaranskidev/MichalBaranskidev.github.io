@@ -121,7 +121,6 @@ Git otworzy edytor dla KAŻDEGO commita. Dla każdego:
 git log --oneline -10
 
 Powinieneś zobaczyć:
-text
 
 a1b2c3d feat: add AI prompt system post
 e4f5g6h style: update blog layout
@@ -129,7 +128,6 @@ i7j8k9l chore: initial blog structure
 m0n1p2q chore: backup old files
 r3s4t5u chore: initial setup
 
-text
 
 
 ---
