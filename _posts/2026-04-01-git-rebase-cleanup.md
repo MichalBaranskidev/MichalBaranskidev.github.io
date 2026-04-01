@@ -82,31 +82,36 @@ vim
 :wq
 
 Co to robi: Zamienia wszystkie pick na reword w pierwszych 5 liniach.
-Krok 5: Zmień nazwy commitów
+## Krok 5: Zmień nazwy commitów
 
 Git otworzy edytor dla KAŻDEGO commita. Dla każdego:
 
-    Usuń starą nazwę – w Vimie użyj cc (usuwa linię i włącza tryb edycji)
+1. **Usuń starą nazwę** – w Vimie użyj `cc` (usuwa linię i włącza tryb edycji)
+2. **Wpisz nową nazwę** – zgodnie z konwencją
+3. **Zapisz i wyjdź** – `:wq`
 
-    Wpisz nową nazwę – zgodnie z konwencją
+**Mapowanie starych → nowych nazw:**
 
-    Zapisz i wyjdź – :wq
+| Stary commit | Nowa nazwa |
+|--------------|-----------|
+| `kurwa` | `chore: initial setup` |
+| `kurwa2` | `chore: backup old files` |
+| `kuva` | `chore: initial blog structure` |
+| `notattata` | `style: update blog layout` |
+| `omg` | `feat: add AI prompt system post` |
 
-Mapowanie starych → nowych nazw:
-Stary commit	Nowa nazwa
-kurwa	chore: initial setup
-kurwa2	chore: backup old files
-kuva	chore: initial blog structure
-notattata	style: update blog layout
-omg	feat: add AI prompt system post
-Krok 6: Konwencja commitów
-Typ	Zastosowanie	Przykład
-feat	Nowa funkcja	feat: add dark mode toggle
-fix	Poprawka błędu	fix: broken link in about page
-docs	Dokumentacja	docs: update README
-style	Formatowanie, CSS	style: format markdown files
-chore	Narzędzia, konfiguracja	chore: update Jekyll version
-refactor	Zmiana struktury kodu	refactor: simplify layout logic
+---
+
+## Krok 6: Konwencja commitów
+
+| Typ | Zastosowanie | Przykład |
+|-----|--------------|----------|
+| `feat` | Nowa funkcja | `feat: add dark mode toggle` |
+| `fix` | Poprawka błędu | `fix: broken link in about page` |
+| `docs` | Dokumentacja | `docs: update README` |
+| `style` | Formatowanie, CSS | `style: format markdown files` |
+| `chore` | Narzędzia, konfiguracja | `chore: update Jekyll version` |
+| `refactor` | Zmiana struktury kodu | `refactor: simplify layout logic` |
 Krok 7: Sprawdź efekt
 bash
 
