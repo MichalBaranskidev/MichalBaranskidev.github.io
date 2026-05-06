@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "System promptów – notatki i nauka narzędzi"
 date: 2026-03-31
 categories: [AI, DevOps, Learning]

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "awk – praktyczne ćwiczenia"
 date: 2026-03-31
 categories: [Bash, DevOps]

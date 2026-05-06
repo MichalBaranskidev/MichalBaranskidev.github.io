@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Git Disaster Recovery – case study
 date: 2026-03-28
 categories: [Git, DevOps]

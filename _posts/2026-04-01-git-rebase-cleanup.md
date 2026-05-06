@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Git Rebase -i – jak oczyścić historię commitów przed rekruterem"
 date: 2026-04-01
 categories: [Git, DevOps]
