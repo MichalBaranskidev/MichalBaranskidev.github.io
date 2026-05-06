@@ -78,7 +78,7 @@ tag_archive:
 # Author
 author:
   name: *name
-  avatar: "/assets/images/bio-photo.png"
+  avatar: "/assets/images/avatar.png"
   bio: "Security Engineer → DevOps. 5 years in IT operations. Passionate about automation, cloud, and documentation."
   location: "Gdańsk, Poland"
   email: michalbrnsk@gmail.com
