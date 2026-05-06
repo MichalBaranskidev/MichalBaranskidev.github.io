@@ -176,3 +176,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+# Custom CSS (kwadratowe zdjęcie)
+head_scripts:
+  - /assets/css/custom.css
