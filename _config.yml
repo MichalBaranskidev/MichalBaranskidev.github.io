@@ -23,11 +23,11 @@ description: >- # this means to ignore newlines until "email:"
 url: "https://michalbaranskidev.github.io"
 avatar: "/assets/images/bio-photo.jpg"
 bio: "Security Engineer → DevOps. Passionate about automation, cloud, and documentation."
-location: "Gdańsk, Poland"
+location: "Gdynia, Poland"
 repository: "MichalBaranskidev/MichalBaranskidev.github.io"
 github_username: MichalBaranskidev
-linkedin_username: michalbaranski
-email: abmis@o2.pl
+linkedin_username: michalbaranskidev
+email: michalbrnsk@gmail.com
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
@@ -92,7 +92,7 @@ social:
   name: Michal Baranski
   links:
     - "https://github.com/MichalBaranskidev"
-    - "https://linkedin.com/in/michalbaranski"
+    - "https://linkedin.com/in/michalbaranskidev"
 
 # Footer
 footer:
@@ -102,7 +102,7 @@ footer:
       url: "https://github.com/MichalBaranskidev"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/michalbaranski"
+      url: "https://linkedin.com/in/michalbaranskidev"
 
 # Defaults
 defaults:
